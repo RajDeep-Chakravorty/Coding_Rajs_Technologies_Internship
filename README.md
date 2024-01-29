@@ -2,7 +2,7 @@
 
 ## Task 1: Movie Recommendation System
 ### Dataset:
-[MovieLens 20M Dataset](link_to_dataset)
+[MovieLens 20M Dataset](https://www.kaggle.com/datasets/grouplens/movielens-20m-dataset)
 
 **Description:** This dataset contains 20 million ratings and 465,000 tag applications applied to 27,000 movies by 138,000 users. It includes user ratings, movie information, and tags.
 

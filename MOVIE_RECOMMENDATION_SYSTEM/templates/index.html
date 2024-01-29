@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation</title>
+
+    <!-- Add styling with space for a background image -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('/static/bg.jpeg');
+            background-position: center;
+            color: #fff; /* White text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        h1 {
+            color: #ffcc00; /* Vibrant Yellow */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #ffcc00; /* Vibrant Yellow */
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #3498db; /* Dodger Blue */
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #3498db; /* Dodger Blue */
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        p {
+            color: #e74c3c; /* Alizarin Crimson */
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #3498db; /* Dodger Blue */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-top: 10px;
+            background-color: #2ecc71; /* Emerald Green */
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        /* Add the following styles for the "Designed by" label */
+        .designed-by {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-style: italic;
+            color: #ffcc00; /* Vibrant Yellow */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Movie Recommendation System</h1>
+    <form method="post" action="/">
+        <label for="movie_name">Enter your favorite movie name:</label>
+        <input type="text" id="movie_name" name="movie_name" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% elif recommendations %}
+    <h2>Recommendations for {{ movie_name }}:</h2>
+    <ul>
+        {% for movie in recommendations %}
+        <li>{{ movie }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <!-- Add the "Designed by" label -->
+    <p class="designed-by">Designed by: <i>Rajdeep Chakravorty</i></p>
+</body>
+
+</html>
